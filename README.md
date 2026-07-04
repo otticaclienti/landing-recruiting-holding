@@ -32,12 +32,24 @@ Sono già impostati sui verdi del logo, in cima a `assets/css/style.css`:
 ```
 Se hai i valori HEX esatti del tuo verde, sostituiscili qui e basta.
 
-### 3. Video (VSL + 4 testimonianze)
-In `index.html`:
-- **VSL**: cerca il commento `<!-- VSL: ... -->` nella sezione HERO,
-  togli il commento all'`<iframe>` e incolla l'embed del tuo video.
-- **Testimonianze**: cerca `TESTIMONIANZA CLIENTE 1..4`, stessa cosa per
-  ognuno dei 4 riquadri. Le copertine le imposti dalla piattaforma video.
+### 3. Video (VSL + intervista Storytime + 4 testimonianze)
+Non serve toccare l'HTML: incolli i **link di YouTube** in
+`assets/js/config.js`, dentro `SETTINGS.videos`:
+```js
+videos: {
+  vsl:       "https://youtu.be/XXXX",   // video di presentazione in alto
+  storytime: "https://youtu.be/XXXX",   // intervista su Storytime
+  testimonials: [                        // le 4 testimonianze, in ordine
+    "https://youtu.be/AAAA",
+    "https://youtu.be/BBBB",
+    "https://youtu.be/CCCC",
+    "https://youtu.be/DDDD"
+  ]
+}
+```
+Vanno bene sia i link `youtu.be/...` sia `youtube.com/watch?v=...` (anche
+Vimeo). Un campo lasciato `""` mostra il segnaposto finché non hai il video.
+Le copertine dei video si impostano dalla piattaforma (YouTube/Vimeo).
 
 ### 4. Dove arrivano le candidature
 In `assets/js/config.js`, imposta `SETTINGS.submitEndpoint` con l'URL del

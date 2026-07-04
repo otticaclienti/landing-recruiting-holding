@@ -33,6 +33,21 @@ const SETTINGS = {
   submitAsJson: true,
 
   /* -----------------------------------------------------------------------
+     VIDEO DELLA PAGINA
+     -----------------------------------------------------------------------
+     Incolla qui i LINK dei video: basta il link di YouTube (o Vimeo).
+     Non serve toccare l'HTML. Esempi di link validi:
+        https://youtu.be/XXXXXXXXXXX
+        https://www.youtube.com/watch?v=XXXXXXXXXXX
+     Lascia "" (vuoto) per mostrare il segnaposto finché non hai il video.  */
+  videos: {
+    vsl:       "",   // Video di presentazione (VSL), in alto nella hero
+    storytime: "",   // Intervista su Storytime (link YouTube)
+    // Le 4 testimonianze clienti, nell'ordine in cui compaiono:
+    testimonials: ["", "", "", ""]
+  },
+
+  /* -----------------------------------------------------------------------
      2) SOGLIA DI ETÀ
      -----------------------------------------------------------------------
      Chi indica un'età FUORI da questo intervallo viene squalificato.

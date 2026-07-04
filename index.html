@@ -95,22 +95,43 @@
           questa pagina adesso. Ci fai risparmiare tempo a entrambi.
         </p>
 
-        <!-- VSL: incolla qui il tuo video di presentazione -->
-        <!-- Sostituisci il src dell'iframe con l'embed del tuo video (YouTube, Vimeo, Wistia...) -->
-        <div class="video-frame video-vsl">
+        <!-- VSL: il link si incolla in assets/js/config.js -> videos.vsl -->
+        <div class="video-frame video-vsl" data-video="vsl" data-title="Video di presentazione">
           <div class="video-placeholder">
             <span>VIDEO DI PRESENTAZIONE (VSL)</span>
-            <small>Incolla qui l'embed in index.html — sezione "VSL"</small>
+            <small>Incolla il link YouTube in config.js → videos.vsl</small>
           </div>
-          <!--
-          <iframe src="INCOLLA_QUI_EMBED_VSL" title="Video di presentazione"
-                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-          -->
         </div>
 
         <a href="#candidatura" class="btn cta-scroll">Candidati alla selezione</a>
 
+      </div>
+    </section>
+
+    <!-- ======================= 1B. INTERVISTA (STORYTIME) ======================= -->
+    <section class="section interview">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">L'intervista</p>
+          <h2>Vuoi capire con chi lavori? <span class="accent">Guardati l'intervista.</span></h2>
+          <p class="section-lead">
+            Sono stato ospite di Storytime e ho raccontato com'è nata l'azienda,
+            come lavoriamo e dove stiamo andando. Zero slide, zero fuffa. Se
+            vuoi farti un'idea vera di chi c'è dall'altra parte, parti da qui.
+          </p>
+        </div>
+
+        <!-- Intervista: il link si incolla in assets/js/config.js -> videos.storytime -->
+        <div class="video-frame video-vsl" data-video="storytime" data-title="Intervista su Storytime">
+          <div class="video-placeholder">
+            <span>INTERVISTA SU STORYTIME</span>
+            <small>Incolla il link YouTube in config.js → videos.storytime</small>
+          </div>
+        </div>
+
+        <div class="section-cta">
+          <a href="#candidatura" class="btn cta-scroll">Candidati alla selezione</a>
+        </div>
       </div>
     </section>
 
@@ -126,24 +147,21 @@
           </p>
         </div>
 
-        <!-- 4 VIDEO TESTIMONIANZE: sostituisci ogni iframe con l'embed del video.
+        <!-- 4 VIDEO TESTIMONIANZE: i link si incollano in
+             assets/js/config.js -> videos.testimonials (nell'ordine).
              Le copertine le imposti dalla piattaforma video (YouTube/Vimeo). -->
         <div class="video-grid">
-          <div class="video-frame">
-            <div class="video-placeholder"><span>TESTIMONIANZA CLIENTE 1</span><small>Incolla embed</small></div>
-            <!-- <iframe src="INCOLLA_EMBED_1" title="Testimonianza 1" allowfullscreen></iframe> -->
+          <div class="video-frame" data-video="testimonial-0" data-title="Testimonianza cliente 1">
+            <div class="video-placeholder"><span>TESTIMONIANZA CLIENTE 1</span><small>config.js → videos.testimonials[0]</small></div>
           </div>
-          <div class="video-frame">
-            <div class="video-placeholder"><span>TESTIMONIANZA CLIENTE 2</span><small>Incolla embed</small></div>
-            <!-- <iframe src="INCOLLA_EMBED_2" title="Testimonianza 2" allowfullscreen></iframe> -->
+          <div class="video-frame" data-video="testimonial-1" data-title="Testimonianza cliente 2">
+            <div class="video-placeholder"><span>TESTIMONIANZA CLIENTE 2</span><small>config.js → videos.testimonials[1]</small></div>
           </div>
-          <div class="video-frame">
-            <div class="video-placeholder"><span>TESTIMONIANZA CLIENTE 3</span><small>Incolla embed</small></div>
-            <!-- <iframe src="INCOLLA_EMBED_3" title="Testimonianza 3" allowfullscreen></iframe> -->
+          <div class="video-frame" data-video="testimonial-2" data-title="Testimonianza cliente 3">
+            <div class="video-placeholder"><span>TESTIMONIANZA CLIENTE 3</span><small>config.js → videos.testimonials[2]</small></div>
           </div>
-          <div class="video-frame">
-            <div class="video-placeholder"><span>TESTIMONIANZA CLIENTE 4</span><small>Incolla embed</small></div>
-            <!-- <iframe src="INCOLLA_EMBED_4" title="Testimonianza 4" allowfullscreen></iframe> -->
+          <div class="video-frame" data-video="testimonial-3" data-title="Testimonianza cliente 4">
+            <div class="video-placeholder"><span>TESTIMONIANZA CLIENTE 4</span><small>config.js → videos.testimonials[3]</small></div>
           </div>
         </div>
 
@@ -352,6 +370,7 @@
   </footer>
 
   <script src="assets/js/config.js"></script>
+  <script src="assets/js/video.js"></script>
   <script src="assets/js/app.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
