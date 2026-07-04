@@ -1,0 +1,5 @@
+Metti qui:
+- logo.png        (logo verde, header)
+- logo-white.png  (logo bianco, footer)
+- og-cover.jpg    (anteprima social 1200x630)
+- favicon.png
