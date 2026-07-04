@@ -44,7 +44,12 @@ const SETTINGS = {
     vsl:       "",   // Video di presentazione (VSL), in alto nella hero
     storytime: "",   // Intervista su Storytime (link YouTube)
     // Le 4 testimonianze clienti, nell'ordine in cui compaiono:
-    testimonials: ["", "", "", ""]
+    testimonials: [
+      "https://youtu.be/WrxDJjZ7NaQ",
+      "https://youtu.be/Hi6P7xJKrY0",
+      "https://youtu.be/U0Iv_2xfj_I",
+      "https://youtu.be/rx51pVvKdsg"
+    ]
   },
 
   /* -----------------------------------------------------------------------
