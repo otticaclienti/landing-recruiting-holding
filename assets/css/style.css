@@ -109,7 +109,6 @@ p { margin: 0; }
   border-color: var(--line);
 }
 .btn-ghost:hover { background: transparent; color: var(--ink); border-color: var(--muted); }
-.btn.is-hidden { visibility: hidden; }
 
 /* --------------------------------- Sections -------------------------------- */
 .section { padding: 84px 0; }
@@ -326,6 +325,10 @@ p { margin: 0; }
 .input-row .input { flex: 1; }
 .input-row-phone .input-prefix { max-width: 92px; flex: 0 0 auto; text-align: center; }
 .select { appearance: none; background-image: none; cursor: pointer; }
+/* Campo numerico (età): niente freccine, stesso aspetto degli altri campi */
+.input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+.input[type="number"]::-webkit-outer-spin-button,
+.input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
 /* Bottoni scelta Sì/No */
 .choice-group { display: flex; flex-direction: column; gap: 12px; }
@@ -364,6 +367,8 @@ p { margin: 0; }
 }
 .step-nav .btn-ghost { flex: 0 0 auto; }
 .step-nav .btn:not(.btn-ghost) { flex: 1; }
+/* Prima domanda: nessun "Indietro", "Avanti" a tutta larghezza */
+.step-nav-single .btn { width: 100%; }
 
 /* Barra a pallini */
 .dots {

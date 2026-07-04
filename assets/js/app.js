@@ -114,21 +114,27 @@
 
     // Navigazione
     var nav = el("div", "step-nav");
-    var backBtn = el("button", "btn btn-ghost", SETTINGS.labels.back);
-    backBtn.type = "button";
-    if (i === 0) backBtn.classList.add("is-hidden");
-    backBtn.addEventListener("click", function () {
-      STATE.step = i - 1;
-      if (STATE.step < 0) STATE.step = -1;
-      render();
-    });
+
+    // "Indietro" solo dalla seconda domanda in poi.
+    // Sulla prima domanda "Avanti" occupa tutta la larghezza (schermata bilanciata).
+    if (i > 0) {
+      var backBtn = el("button", "btn btn-ghost", SETTINGS.labels.back);
+      backBtn.type = "button";
+      backBtn.addEventListener("click", function () {
+        STATE.step = i - 1;
+        if (STATE.step < 0) STATE.step = -1;
+        render();
+      });
+      nav.appendChild(backBtn);
+    } else {
+      nav.classList.add("step-nav-single");
+    }
 
     var isLast = i === QUESTIONS.length - 1;
     var nextBtn = el("button", "btn", isLast ? SETTINGS.labels.submit : SETTINGS.labels.next);
     nextBtn.type = "button";
     nextBtn.addEventListener("click", function () { goNext(q, field, errorBox); });
 
-    nav.appendChild(backBtn);
     nav.appendChild(nextBtn);
     node.appendChild(nav);
 
