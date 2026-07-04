@@ -42,7 +42,7 @@ const SETTINGS = {
      Lascia "" (vuoto) per mostrare il segnaposto finché non hai il video.  */
   videos: {
     vsl:       "",   // Video di presentazione (VSL), in alto nella hero
-    storytime: "",   // Intervista su Storytime (link YouTube)
+    storytime: "https://youtu.be/8t6cG9KZwGY",   // Intervista su Storytime (link YouTube)
     // Le 4 testimonianze clienti, nell'ordine in cui compaiono:
     testimonials: [
       "https://youtu.be/WrxDJjZ7NaQ",
