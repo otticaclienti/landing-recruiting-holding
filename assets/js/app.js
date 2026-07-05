@@ -435,27 +435,45 @@
     render();
   }
 
+  function answerToText(v) {
+    if (v == null) return "";
+    if (typeof v === "object") {
+      if (v.nome !== undefined) return ((v.nome || "") + " " + (v.cognome || "")).trim();
+      if (v.numero !== undefined) return ((v.prefisso || "") + " " + (v.numero || "")).trim();
+      return JSON.stringify(v);
+    }
+    return String(v);
+  }
+
   function buildPayload() {
-    // Costruisce un oggetto leggibile con domanda -> risposta
+    var a = STATE.answers;
+    var nc = a["nome_cognome"] || {};
+    var tel = a["telefono"] || {};
+    // Telefono in formato E.164 (senza spazi) per CRM/GHL
+    var phone = ((tel.prefisso || "") + (tel.numero || "")).replace(/[^\d+]/g, "");
+
+    // Campi standard, nomi già pronti per il mapping in GHL
     var out = {
-      _fonte: "Landing selezione venditori — Ottica Clienti",
-      _data: new Date().toISOString(),
-      risposte: {}
+      first_name: nc.nome || "",
+      last_name: nc.cognome || "",
+      full_name: ((nc.nome || "") + " " + (nc.cognome || "")).trim(),
+      email: a["email"] || "",
+      phone: phone,
+      eta: a["eta"] || "",
+      fonte: "Landing selezione venditori B2B — Ottica Clienti",
+      data: new Date().toISOString()
     };
+
+    // Ogni risposta anche come chiave "piatta" (facile da mappare in GHL)
+    // + una nota unica leggibile con tutte le domande e risposte.
+    var note = [];
     QUESTIONS.forEach(function (q) {
-      out.risposte[q.id] = {
-        domanda: q.question,
-        risposta: STATE.answers[q.id]
-      };
+      var text = answerToText(a[q.id]);
+      out[q.id] = text;
+      note.push(q.question + "\n" + (text || "—"));
     });
-    // Campi comodi in cima per CRM / webhook
-    var nc = STATE.answers["nome_cognome"] || {};
-    out.nome = nc.nome || "";
-    out.cognome = nc.cognome || "";
-    out.email = STATE.answers["email"] || "";
-    var tel = STATE.answers["telefono"] || {};
-    out.telefono = (tel.prefisso || "") + " " + (tel.numero || "");
-    out.eta = STATE.answers["eta"] || "";
+    out.note = note.join("\n\n");
+
     return out;
   }
 
