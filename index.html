@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Abilita gli effetti di comparsa solo se il JS è attivo (evita contenuti nascosti) -->
+  <script>document.documentElement.className += " js";</script>
+
   <!-- ============================================================= -->
   <!-- META TAG BASE / SEO  (modifica qui titolo e descrizione)      -->
   <!-- ============================================================= -->
@@ -143,6 +146,7 @@
     <section class="section testimonials">
       <div class="container">
         <div class="section-head">
+          <p class="eyebrow">Risultati veri</p>
           <h2>Noi non promettiamo. <span class="accent">I risultati li mostrano i clienti.</span></h2>
           <p class="section-lead">
             Non troverai numeri gonfiati o slide motivazionali. Troverai persone
@@ -179,6 +183,7 @@
     <section class="section about">
       <div class="container">
         <div class="section-head">
+          <p class="eyebrow">Il gruppo</p>
           <h2>Chi siamo</h2>
           <p class="section-lead">
             Ottica Clienti è un'agenzia di marketing attiva da oltre 2 anni.
@@ -222,6 +227,7 @@
     <section class="section offer">
       <div class="container">
         <div class="section-head">
+          <p class="eyebrow">L'offerta</p>
           <h2>Cosa ottieni</h2>
           <p class="section-lead">
             Niente favole. Ecco cosa metti sul tavolo se entri e cosa puoi
@@ -240,8 +246,9 @@
           <li>
             <h3>Guadagni legati alla performance</h3>
             <p>
-              Chi performa arriva a 2–5k netti al mese. Non è un fisso, non è
-              garantito: il guadagno è legato alla resa. Se rendi, guadagni.
+              Chi performa arriva a <span class="accent">2–5k netti al mese</span>.
+              Non è un fisso, non è garantito: il guadagno è legato alla resa.
+              Se rendi, guadagni.
             </p>
           </li>
           <li>
@@ -277,6 +284,7 @@
     <section class="section looking-for">
       <div class="container">
         <div class="section-head">
+          <p class="eyebrow">Il profilo</p>
           <h2>Chi cerchiamo</h2>
           <p class="section-lead">
             Due venditori full-time, già con esperienza, che lavorano
@@ -313,6 +321,7 @@
     <section class="section not-looking">
       <div class="container">
         <div class="section-head">
+          <p class="eyebrow">Mettiamo i puntini</p>
           <h2 class="accent">Chi non cerchiamo</h2>
           <p class="section-lead">
             Questa parte è più importante di quella sopra. Dire chi rifiutiamo
@@ -381,6 +390,7 @@
   <script src="assets/js/app.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
     // Nasconde la CTA fissa mobile quando la sezione del form è visibile
     (function () {
       var bar = document.querySelector('.mobile-cta');
@@ -390,6 +400,23 @@
         entries.forEach(function (e) { bar.classList.toggle('is-hidden', e.isIntersecting); });
       }, { rootMargin: '0px 0px -45% 0px' });
       io.observe(form);
+    })();
+
+    // Comparsa morbida dei blocchi allo scroll
+    (function () {
+      var sel = '.section:not(.hero) .section-head, .stats, .about-note, .offer-list,' +
+                '.check-list, .cross-list, .video-grid, .interview .video-vsl, .section-cta';
+      var els = document.querySelectorAll(sel);
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('is-in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+      els.forEach(function (el) { io.observe(el); });
     })();
   </script>
 </body>

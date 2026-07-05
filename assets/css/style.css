@@ -102,8 +102,10 @@ p { margin: 0; }
   transition: background .18s var(--ease), transform .12s var(--ease), border-color .18s var(--ease);
   text-align: center;
 }
-.btn:hover { background: var(--green-dark); border-color: var(--green-dark); }
+.btn:hover { background: var(--green-dark); border-color: var(--green-dark); transform: translateY(-1px); }
 .btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--green-dark); outline-offset: 3px; }
+.cta-scroll:focus-visible { outline: 2px solid var(--green-dark); outline-offset: 3px; }
 .btn-sm { padding: 11px 18px; font-size: 14px; }
 .btn-block { width: 100%; }
 .btn-ghost {
@@ -130,6 +132,9 @@ p { margin: 0; }
 .section-cta { margin-top: 48px; }
 
 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 13px;
@@ -137,6 +142,15 @@ p { margin: 0; }
   color: var(--green);
   margin-bottom: 22px;
 }
+/* Piccola linea verde prima dell'occhiello: accento editoriale discreto */
+.eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: var(--green);
+  display: inline-block;
+}
+.section-head .eyebrow { margin-bottom: 15px; }
 
 /* ---------------------------------- Hero ----------------------------------- */
 .hero { padding-top: 64px; }
@@ -446,6 +460,37 @@ p { margin: 0; }
   }
 }
 
+/* ============================== RIFINITURE ================================ */
+/* Comparsa morbida degli elementi allo scroll (understated).
+   Attiva solo con JS (classe .js impostata subito nel <head>): senza JS
+   tutti i contenuti restano visibili. La hero non viene mai nascosta. */
+.js .section:not(.hero) .section-head,
+.js .stats,
+.js .about-note,
+.js .offer-list,
+.js .check-list,
+.js .cross-list,
+.js .video-grid,
+.js .interview .video-vsl,
+.js .section-cta {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.js .is-in { opacity: 1 !important; transform: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .section:not(.hero) .section-head,
+  .js .stats,
+  .js .about-note,
+  .js .offer-list,
+  .js .check-list,
+  .js .cross-list,
+  .js .video-grid,
+  .js .interview .video-vsl,
+  .js .section-cta { opacity: 1; transform: none; transition: none; }
+}
+
 /* ================================ RESPONSIVE ============================== */
 /* Mobile-first: sopra il minimo, allarghiamo. */
 
@@ -464,6 +509,19 @@ p { margin: 0; }
   .section { padding: 104px 0; }
   .hero { padding-top: 88px; }
   .section-head { margin-bottom: 56px; }
+
+  /* Liste su due colonne: meno vuoto a destra, aria più premium */
+  .offer-list,
+  .check-list,
+  .cross-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 60px;
+  }
+  .offer-list li:last-child,
+  .check-list li:last-child,
+  .cross-list li:last-child { border-bottom: none; }
+  .offer-list p, .offer-list h3 { max-width: none; }
 }
 
 /* Rispetta chi preferisce meno movimento */
