@@ -71,17 +71,26 @@ p { margin: 0; }
   min-height: 64px;
   gap: 16px;
 }
-.logo img { height: 34px; width: auto; }
+/* Logo (marchio SVG + testo) */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--green);
+}
+.logo-mark { height: 30px; width: auto; flex: 0 0 auto; display: block; }
+.logo-word {
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  font-size: 20px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: inherit;
+  white-space: nowrap;
+}
 /* Etichetta CTA header: corta su mobile, estesa da tablet in su */
 .cta-label-full { display: none; }
 .cta-label-short { display: inline; }
-.logo-fallback {
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  color: var(--green-dark);
-  font-size: 17px;
-  white-space: nowrap;
-}
 
 /* --------------------------------- Buttons --------------------------------- */
 .btn {
@@ -445,8 +454,9 @@ p { margin: 0; }
   padding: 54px 0;
 }
 .footer-inner { text-align: center; }
-.footer-logo img { height: 30px; margin: 0 auto 16px; }
-.footer-logo .logo-fallback { color: #fff; }
+.footer-logo { margin-bottom: 16px; }
+.footer-logo .logo { color: #fff; justify-content: center; }
+.footer-logo .logo-mark { height: 28px; }
 .footer-note { color: #c7ddc6; margin: 12px 0 6px; }
 .footer-copy { color: #9dbd9c; font-size: 14px; }
 /* Spazio per non far coprire il footer dalla CTA fissa mobile */
