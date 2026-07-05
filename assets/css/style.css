@@ -8,7 +8,7 @@
    Se vuoi cambiarli, modifica solo queste due variabili.
    ========================================================================= */
 :root {
-  --green:        #157a45;  /* verde del brand — accento */
+  --green:        #096f43;  /* verde del brand — accento (dal logo) */
   --green-dark:   #0d4d2c;  /* verde scuro — testo su verde chiaro, header/footer */
   --green-soft:   #eef4ef;  /* verde appena accennato per sfondi leggeri */
 
@@ -71,23 +71,9 @@ p { margin: 0; }
   min-height: 64px;
   gap: 16px;
 }
-/* Logo (marchio SVG + testo) */
-.logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  color: var(--green);
-}
-.logo-mark { height: 30px; width: auto; flex: 0 0 auto; display: block; }
-.logo-word {
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  font-size: 20px;
-  line-height: 1;
-  text-transform: uppercase;
-  color: inherit;
-  white-space: nowrap;
-}
+/* Logo (immagine) */
+.logo { display: inline-flex; align-items: center; }
+.logo img { height: 40px; width: auto; display: block; }
 /* Etichetta CTA header: corta su mobile, estesa da tablet in su */
 .cta-label-full { display: none; }
 .cta-label-short { display: inline; }
@@ -490,8 +476,8 @@ p { margin: 0; }
 }
 .footer-inner { text-align: center; }
 .footer-logo { margin-bottom: 16px; }
-.footer-logo .logo { color: #fff; justify-content: center; }
-.footer-logo .logo-mark { height: 28px; }
+.footer-logo .logo { justify-content: center; }
+.footer-logo img { height: 34px; }
 .footer-note { color: #c7ddc6; margin: 12px 0 6px; }
 .footer-copy { color: #9dbd9c; font-size: 14px; }
 /* Spazio per non far coprire il footer dalla CTA fissa mobile */

@@ -17,15 +17,16 @@ assets/img/                → metti qui logo e immagine di anteprima social
 ## Cosa devi fare tu (checklist rapida)
 
 ### 1. Logo
-Il logo è già inserito come **ricostruzione vettoriale (SVG)**: marchio (occhio)
-+ scritta "Ottica Clienti". Vantaggi: nitido a qualsiasi dimensione e cambia
-colore da solo (verde nell'header, bianco nel footer).
-- Header/footer: il marchio è un `<svg>` dentro `index.html`; il colore segue
-  `--green` (header) e il bianco (footer).
-- **Favicon** (icona della scheda del browser): `assets/img/favicon.svg`.
+È inserito il **logo originale** (l'immagine che hai fornito), ripulito dallo
+sfondo e ritagliato:
+- `assets/img/logo.png` → logo verde su trasparente (header).
+- `assets/img/logo-white.png` → logo bianco su trasparente (footer verde).
+- `assets/img/logo-original.jpg` → il file originale che hai caricato (sorgente).
+- `assets/img/favicon.svg` → icona della scheda del browser (solo l'occhio).
 
-Se un giorno vuoi usare il file originale esatto invece della ricostruzione,
-mettilo in `assets/img/` e fammelo sapere: sostituisco l'SVG con la tua immagine.
+Per sostituire il logo in futuro, rimpiazza `logo.png` / `logo-white.png`
+mantenendo gli stessi nomi. Il verde del brand (ricavato dal logo) è
+`--green: #096f43`, in cima a `assets/css/style.css`.
 
 ### 2. Colori del brand
 Sono già impostati sui verdi del logo, in cima a `assets/css/style.css`:
