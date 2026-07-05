@@ -105,6 +105,18 @@ In `SETTINGS.messages` cambi:
 Nell'array `QUESTIONS` puoi cambiare `question`, `subtitle`, le `options` e
 l'ordine. Il numero di domande e i pallini della barra si aggiornano da soli.
 
+## Testo della pagina (copy)
+Tutto il testo delle sezioni è in `index.html`, ben commentato per sezione.
+
+- **Sezione "Una giornata"** (`<!-- 5B. UNA GIORNATA -->`): descrive com'è una
+  giornata di lavoro tipo. **Adatta orari, fasi e strumenti (CRM, ecc.) alla
+  vostra routine reale** — è scritta in modo concreto apposta per far
+  auto-escludere chi non regge il ritmo.
+- **CTA**: la maggior parte dei bottoni dice "Candidati alla selezione"; due a
+  metà pagina usano varianti ("Scopri se sei quello che cerchiamo", "Vedi se
+  fai al caso nostro") per non stancare l'occhio. Puoi cambiarle liberamente:
+  l'importante è che il link resti `href="#candidatura"`.
+
 ## Anteprima in locale
 Apri semplicemente `index.html` nel browser, oppure servi la cartella:
 ```
