@@ -25,7 +25,7 @@ const SETTINGS = {
      Lascialo vuoto ("") per fare solo delle prove: in quel caso la
      candidatura NON viene inviata da nessuna parte, viene solo stampata
      nella console del browser (tasto destro > Ispeziona > Console).       */
-  submitEndpoint: "",
+  submitEndpoint: "https://services.leadconnectorhq.com/hooks/xh7m4MJmC64vZ8DjCo5g/webhook-trigger/e754fbeb-26d2-4512-bc00-faa1f7d5abdd",
 
   /* Metodo e formato dell'invio. Nella stragrande maggioranza dei casi
      lascia così com'è. */

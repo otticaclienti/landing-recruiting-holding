@@ -464,13 +464,12 @@
       data: new Date().toISOString()
     };
 
-    // Ogni risposta anche come chiave "piatta" (facile da mappare in GHL)
-    // + una nota unica leggibile con tutte le domande e risposte.
+    // Tutte le domande e risposte in un'unica NOTA leggibile.
+    // (In GHL basta mappare "note" sulla nota del contatto: la vedi
+    //  aprendo l'opportunità. Nessun custom field necessario.)
     var note = [];
     QUESTIONS.forEach(function (q) {
-      var text = answerToText(a[q.id]);
-      out[q.id] = text;
-      note.push(q.question + "\n" + (text || "—"));
+      note.push(q.question + "\n" + (answerToText(a[q.id]) || "—"));
     });
     out.note = note.join("\n\n");
 
