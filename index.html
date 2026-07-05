@@ -68,7 +68,10 @@
              onerror="this.style.display='none';this.nextElementSibling.style.display='inline'" />
         <span class="logo-fallback" style="display:none">OTTICA CLIENTI</span>
       </a>
-      <a href="#candidatura" class="btn btn-sm cta-scroll">Candidati alla selezione</a>
+      <a href="#candidatura" class="btn btn-sm cta-scroll">
+        <span class="cta-label-full">Candidati alla selezione</span>
+        <span class="cta-label-short">Candidati</span>
+      </a>
     </div>
   </header>
 
@@ -370,9 +373,24 @@
     </div>
   </footer>
 
+  <!-- CTA fissa in basso, solo mobile. Si nasconde quando il form è a schermo. -->
+  <a href="#candidatura" class="mobile-cta cta-scroll">Candidati alla selezione</a>
+
   <script src="assets/js/config.js"></script>
   <script src="assets/js/video.js"></script>
   <script src="assets/js/app.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Nasconde la CTA fissa mobile quando la sezione del form è visibile
+    (function () {
+      var bar = document.querySelector('.mobile-cta');
+      var form = document.getElementById('candidatura');
+      if (!bar || !form || !('IntersectionObserver' in window)) return;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { bar.classList.toggle('is-hidden', e.isIntersecting); });
+      }, { rootMargin: '0px 0px -45% 0px' });
+      io.observe(form);
+    })();
+  </script>
 </body>
 </html>
