@@ -85,7 +85,7 @@ const SETTINGS = {
      4) SCHERMATA DI APERTURA DEL FORM
      ----------------------------------------------------------------------- */
   intro: {
-    title: "Diventa uno dei nostri 2 venditori",
+    title: "Diventa uno dei nostri 2 venditori B2B",
     subtitle: "Compila il form e candidati alla selezione.",
     startButton: "Inizia"
   },
