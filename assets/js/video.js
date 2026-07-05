@@ -59,7 +59,47 @@
     host.classList.add("has-video");
   }
 
-  mount("vsl", V.vsl);
+  // La VSL parte in autoplay (muta, come impongono i browser) con un
+  // pulsante "Attiva l'audio": al primo tocco parte il sonoro.
+  function mountVslAutoplay(url) {
+    var host = document.querySelector('[data-video="vsl"]');
+    if (!host) return;
+    var id = youtubeId(String(url || "").trim());
+    if (!id) { mount("vsl", url); return; } // non-YouTube: embed normale
+
+    var src = "https://www.youtube-nocookie.com/embed/" + id +
+      "?rel=0&playsinline=1&autoplay=1&mute=1&enablejsapi=1&origin=" +
+      encodeURIComponent(location.origin);
+
+    var iframe = document.createElement("iframe");
+    iframe.src = src;
+    iframe.title = host.getAttribute("data-title") || "Video";
+    iframe.setAttribute("frameborder", "0");
+    iframe.setAttribute("allow",
+      "autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+    iframe.setAttribute("allowfullscreen", "");
+
+    host.innerHTML = "";
+    host.appendChild(iframe);
+    host.classList.add("has-video");
+
+    var overlay = document.createElement("button");
+    overlay.type = "button";
+    overlay.className = "video-unmute";
+    overlay.setAttribute("aria-label", "Attiva l'audio del video");
+    overlay.innerHTML = "<span>Attiva l'audio</span>";
+    overlay.addEventListener("click", function () {
+      try {
+        iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', "*");
+        iframe.contentWindow.postMessage('{"event":"command","func":"setVolume","args":[100]}', "*");
+        iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', "*");
+      } catch (e) {}
+      overlay.parentNode && overlay.parentNode.removeChild(overlay);
+    });
+    host.appendChild(overlay);
+  }
+
+  mountVslAutoplay(V.vsl);
   mount("storytime", V.storytime);
   (V.testimonials || []).forEach(function (u, i) {
     mount("testimonial-" + i, u);
