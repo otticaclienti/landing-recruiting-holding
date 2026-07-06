@@ -214,7 +214,7 @@ const QUESTIONS = [
   {
     id: "motivazione",
     type: "textarea",
-    question: "Cosa ti ha convinto a candidarti per lavorare con noi?",
+    question: "Cosa ti spinge a lavorare come venditore?",
     subtitle: "Qualunque motivo: economico, di crescita, di ruolo…",
     required: true
   },
