@@ -275,24 +275,6 @@ p { margin: 0; }
 .offer-list h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
 .offer-list p { color: var(--muted); max-width: 62ch; }
 
-/* ---------------------------- Giornata (routine) --------------------------- */
-.day-list { list-style: none; padding: 0; margin: 0; }
-.day-list li {
-  padding: 24px 0;
-  border-top: 1px solid var(--line);
-}
-.day-list li:last-child { border-bottom: 1px solid var(--line); }
-.day-phase {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 12.5px;
-  font-weight: 700;
-  color: var(--green);
-  margin-bottom: 8px;
-}
-.day-list p { color: var(--muted); max-width: 68ch; }
-
 /* ------------------------ Check list (chi cerchiamo) ----------------------- */
 .check-list li, .cross-list li {
   position: relative;
