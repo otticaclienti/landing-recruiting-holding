@@ -41,7 +41,7 @@ body {
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
-h1, h2, h3 { margin: 0; line-height: 1.12; letter-spacing: -0.02em; font-weight: 800; }
+h1, h2, h3 { margin: 0; line-height: 1.1; letter-spacing: -0.025em; font-weight: 900; }
 p { margin: 0; }
 
 .accent { color: var(--green); }
@@ -116,7 +116,7 @@ p { margin: 0; }
 
 .section-head { max-width: 760px; margin-bottom: 44px; }
 .section-head h2 {
-  font-size: clamp(28px, 5vw, 42px);
+  font-size: clamp(31px, 6vw, 44px);
   margin-bottom: 18px;
 }
 .section-lead {
@@ -272,7 +272,7 @@ p { margin: 0; }
   border-top: 1px solid var(--line);
 }
 .offer-list li:last-child { border-bottom: 1px solid var(--line); }
-.offer-list h3 { font-size: 21px; font-weight: 700; margin-bottom: 8px; }
+.offer-list h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
 .offer-list p { color: var(--muted); max-width: 62ch; }
 
 /* ---------------------------- Giornata (routine) --------------------------- */
